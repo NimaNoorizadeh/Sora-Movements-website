@@ -1,3 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-export default defineConfig({ plugins: [react()], server: { watch: { ignored: ['**/review/**', '**/.npm-cache/**'] } } });
+
+export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? '/Sora-Movements-website/' : '/',
+  plugins: [react()],
+  server: { watch: { ignored: ['**/review/**', '**/.npm-cache/**'] } },
+});
